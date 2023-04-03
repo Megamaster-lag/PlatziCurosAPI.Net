@@ -7,9 +7,9 @@ namespace PlatziWebApi.Middlewares
         //Nos ayuda a llamar al siguiente middleware que sigue
         readonly RequestDelegate next;
 
-        public TimeMiddleware(RequestDelegate nextRequest) 
+        public TimeMiddleware(RequestDelegate nextRequest)
         {
-            next = nextRequest;   
+            next = nextRequest;
         }
 
         public async Task Invoke(Microsoft.AspNetCore.Http.HttpContext context)
@@ -21,7 +21,7 @@ namespace PlatziWebApi.Middlewares
                 await context.Response.WriteAsync(DateTime.Now.ToShortDateString());
             }
         }
-      
+
     }
 
     public static class TimeMiddlewareExtension
